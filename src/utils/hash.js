@@ -1,4 +1,9 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 
-export const createHash = (password) => bcrypt.hashSync(password, 10);
-export const isValidPassword = (user, password) => bcrypt.compareSync(password, user.password);
+export const hashPassword = async (password) => {
+  return await bcrypt.hash(password, 10);
+};
+
+export const isValidPassword = async (user, password) => {
+  return await bcrypt.compare(password, user.password);
+};
