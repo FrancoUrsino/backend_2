@@ -4,7 +4,7 @@ import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import { User } from "../models/user.model.js";
 import { isValidPassword, hashPassword } from "../utils/hash.js";
 import { cookieExtractor } from "../utils/cookieExtractor.js";
-import { createCart } from '../services/cart.service.js';
+import createCart from '../services/cart.service.js';
 
 export const initPassport = () => {
   passport.use('register', new LocalStrategy(

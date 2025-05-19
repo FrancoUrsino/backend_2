@@ -1,13 +1,15 @@
-function authMiddleware(req, res, next) {
-  const token = req.cookies.token || req.headers.authorization?.split(' ')[1]; // JWT por cookie o header
+import jwt from 'jsonwebtoken';
+
+
+export const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
 
   if (!token) return res.status(401).json({ error: 'No token provided' });
 
-  try {
-    const user = jwt.verify(token, process.env.JWT_SECRET);
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ error: 'Token inválido o expirado' });
     req.user = user;
     next();
-  } catch (err) {
-    return res.status(403).json({ error: 'Invalid token' });
-  }
-}
+  });
+};
