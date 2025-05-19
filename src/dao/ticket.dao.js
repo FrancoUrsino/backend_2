@@ -5,8 +5,6 @@ export class TicketDAO {
     const ticket = new Ticket(data);
     return await ticket.save();
   }
-
-  // Podés agregar otros métodos si querés (getTickets, getTicketById, etc)
 }
 
 export default new TicketDAO();

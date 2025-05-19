@@ -1,4 +1,3 @@
-// dao/cart.dao.js
 import { Cart } from "../models/cart.model.js";
 
 export class CartDAO {

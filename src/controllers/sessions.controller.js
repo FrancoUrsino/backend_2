@@ -39,6 +39,5 @@ export const handleCurrent = (req, res) => {
 };
 
 export const handleLogout = (req, res) => {
-  // No hace falta borrar cookies si no se usa cookie
   res.json({ message: 'Log out exitoso' });
 };

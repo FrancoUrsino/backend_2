@@ -3,7 +3,6 @@ import { Product } from "../models/product.model.js";
 import { isValidObjectId } from "../utils/validators.js";
 import ticketDAO from '../dao/ticket.dao.js';
 
-
 const cartDAO = new CartDAO();
 
 export class CartService {
@@ -79,7 +78,6 @@ export class CartService {
     const cart = await cartDAO.findCartById(cid);
     if (!cart) return { error: "Carrito no encontrado" };
 
-    // Validar stock y calcular total
     let totalAmount = 0;
     for (const item of cart.products) {
       const product = await Product.findById(item.product);
@@ -90,16 +88,14 @@ export class CartService {
       totalAmount += product.price * item.quantity;
     }
 
-    // Reducir stock
     for (const item of cart.products) {
       const product = await Product.findById(item.product);
       product.stock -= item.quantity;
       await product.save();
     }
 
-    // Crear ticket de compra
     const ticketData = {
-      code: this.generateTicketCode(), // método para generar código único
+      code: this.generateTicketCode(),
       purchase_datetime: new Date(),
       amount: totalAmount,
       cartId: cid,
@@ -107,7 +103,6 @@ export class CartService {
 
     const ticket = await ticketDAO.createTicket(ticketData);
 
-    // Vaciar carrito
     cart.products = [];
     await cartDAO.updateCart(cart);
 

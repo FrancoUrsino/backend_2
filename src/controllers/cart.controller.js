@@ -1,5 +1,5 @@
 import { CartService } from "../services/cart.service.js";
-import { TicketDAO } from '../dao/ticket.dao.js'; // Asumo que tenés un DAO para tickets
+import { TicketDAO } from '../dao/ticket.dao.js';
 import ticketDAO from '../dao/ticket.dao.js'; 
 
 const cartService = new CartService();
