@@ -13,6 +13,7 @@ import viewRoutes from './routes/view.router.js';
 import cartRouter from './routes/cart.router.js';
 import checkoutRouter from './routes/checkout.router.js';
 import mocksRouter from './routes/mocks.router.js';
+import { swaggerDocs } from './config/swagger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -41,5 +42,6 @@ app.use("/api/carts", cartRouter);
 app.use("/api/checkout", checkoutRouter);
 app.use('/api/mocks', mocksRouter);
 app.use("/", viewRoutes);
+swaggerDocs(app);
 
 export default app;

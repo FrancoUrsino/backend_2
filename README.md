@@ -35,6 +35,8 @@ JWT
 Passport.js
 Dotenv
 Bcrypt
+Docker
+Swagger
 
 # Proyecto Backend Dockerizado
 

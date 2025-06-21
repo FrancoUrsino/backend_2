@@ -9,7 +9,7 @@ const options = {
       version: '1.0.0',
     },
   },
-  apis: ['./src/routes/users.router.js'], // Archivo donde está tu router de users
+  apis: ['./src/routes/user.router.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);

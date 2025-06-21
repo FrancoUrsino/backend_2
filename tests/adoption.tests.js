@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../src/app.js'; // Asegurate que app esté exportado
+import app from '../src/app.js';
 
 describe('Adoption Routes', () => {
   it('GET /api/adoption debe devolver estado 200', async () => {
@@ -7,5 +7,4 @@ describe('Adoption Routes', () => {
     expect(res.statusCode).toBe(200);
   });
 
-  // Otros tests: POST, PUT, DELETE...
 });

@@ -1,4 +1,3 @@
-// src/models/pet.model.js
 import mongoose from 'mongoose';
 
 const petSchema = new mongoose.Schema({
