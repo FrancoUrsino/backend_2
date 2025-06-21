@@ -36,3 +36,19 @@ Passport.js
 Dotenv
 Bcrypt
 
+# Proyecto Backend Dockerizado
+
+## Documentación Swagger
+
+[Ver documentación](http://localhost:8080/api/docs)
+
+## Imagen de Docker
+
+[Imagen en DockerHub](https://hub.docker.com/r/francoursino/backend-proyecto)
+
+Para correr:
+
+```bash
+docker pull francoursino/backend-proyecto
+docker run -p 8080:8080 francoursino/backend-proyecto
+

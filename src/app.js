@@ -12,6 +12,7 @@ import productRoutes from './routes/products.router.js';
 import viewRoutes from './routes/view.router.js';
 import cartRouter from './routes/cart.router.js';
 import checkoutRouter from './routes/checkout.router.js';
+import mocksRouter from './routes/mocks.router.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -38,6 +39,7 @@ app.use("/api/sessions", sessionRouter);
 app.use("/api/products", productRoutes);
 app.use("/api/carts", cartRouter);
 app.use("/api/checkout", checkoutRouter);
+app.use('/api/mocks', mocksRouter);
 app.use("/", viewRoutes);
 
 export default app;

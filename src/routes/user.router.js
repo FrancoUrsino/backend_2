@@ -1,6 +1,18 @@
 import { Router } from "express";
 import User from "../models/user.model.js";
 
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Obtener todos los usuarios
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios
+ */
+router.get('/', getAllUsers);
+
+
 const router = Router();
 
 router.get("/", async (req, res) => {
